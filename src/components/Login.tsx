@@ -6,7 +6,6 @@ export default function LoginPage() {
   return (
     <div className="w-full h-screen bg-white flex items-center justify-center">
       <div className="w-full max-w-6xl flex flex-row items-center">
-        {/* Logo sebelah kiri */}
         <div className="w-1/2 flex justify-center items-center">
           <img 
             src="public/man1.png" 
@@ -15,7 +14,6 @@ export default function LoginPage() {
           />
         </div>
 
-        {/* Form sebelah kanan */}
         <div className="w-1/2 p-8">
           <div className="max-w-md mx-auto">
             <h2 className="text-2xl font-semibold text-center mb-1">Selamat Datang</h2>
