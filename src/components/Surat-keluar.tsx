@@ -18,7 +18,7 @@ export default function SuratKeluarForm() {
           </div>
           <div className="flex items-center gap-4 p-3 w-full bg-[#34542C50] rounded-lg cursor-pointer">
             <img src="surat_keluar.png" alt="Surat Keluar" className="w-6 h-6" />
-            <span className="text-gray-800 text-lg font-semibold">Surat Keluar</span>
+            <span className="text-black text-lg font-semibold">Surat Keluar</span>
           </div>
         </div>
       </aside>
