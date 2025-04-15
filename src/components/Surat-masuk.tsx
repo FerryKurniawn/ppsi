@@ -1,53 +1,112 @@
 import React from "react";
 
-export default function suratmasuk() {
+export default function SuratMasukForm() {
   return (
-    <>
-      <div className="flex">
-        <div className="w-[450px] ml-5 flex flex-col items-center mt-[40px] shadow-md h-screen">
-          <img src="man1.png" alt="" width="225" className="mt-10" />
-          <div className="flex flex-col items-center mt-[40px] text-2xl font-semibold">
-            <h1>SIMANIS</h1>
-            <h2>SISTEM INFORMASI</h2>
-            <h2>MADRASAH ALIYAH NEGERI 1 SINTANG</h2>
+    <div className="flex min-h-screen">
+      {/* Sidebar */}
+      <aside className="w-[350px] bg-white shadow-lg flex flex-col items-center h-screen fixed left-0 top-0 z-20">
+        <img src="logo.png" alt="Logo" width="200" className="mt-2" />
+        <div className="flex flex-col items-center mt-4 text-xl font-semibold text-center px-4">
+          <h1>ARISMA</h1>
+          <h2>SISTEM INFORMASI</h2>
+          <h2>MADRASAH ALIYAH NEGERI 1 SINTANG</h2>
+        </div>
+        <div className="p-6 mt-6 w-full">
+          <div className="flex items-center gap-4 p-3 mb-4 w-full bg-[#34542C50] rounded-lg cursor-pointer">
+            <img src="surat_masuk.png" alt="Surat Masuk" className="w-6 h-6" />
+            <span className="text-gray-800 text-lg font-semibold">Surat Masuk</span>
           </div>
-          <div className="p-10 rounded-lg shadow-lg mt-[40px]">
-            <div className="flex items-center gap-4 p-2 mb-[20px] w-[300px] bg-[#34542C50] rounded-lg cursor-pointer">
-              <img
-                src="surat_masuk.png"
-                alt="Surat Masuk"
-                className="w-[23px] h-[23px]"
-              />
-              <span className="text-black font-semibold text-2xl">
-                Surat Masuk
-              </span>
-            </div>
-            <div className="flex items-center gap-4 mb-[20px] w-[300px] p-2 rounded-lg  cursor-pointer ">
-              <img
-                src="surat_keluar.png"
-                alt="Surat Keluar"
-                className="w-[23px] h-[23px]"
-              />
-              <span className="text-gray-600 text-2xl font-semibold">
-                Surat Keluar
-              </span>
-            </div>
-            <div className="flex items-center gap-4 p-2 w-[300px] rounded-lg cursor-pointer ">
-              <img
-                src="disposisi.png"
-                alt="Disposisi"
-                className="w-[23px] h-[23px]"
-              />
-              <span className="text-gray-600 text-2xl font-semibold">
-                Disposisi
-              </span>
-            </div>
+          <div className="flex items-center gap-4 p-3 w-full bg-white rounded-lg hover:bg-gray-100 cursor-pointer">
+            <img src="surat_keluar.png" alt="Surat Keluar" className="w-6 h-6" />
+            <span className="text-black font-semibold text-lg">Surat Keluar</span>
           </div>
         </div>
-        <div>
-          <h1>Surat Masuk</h1>
-        </div>
+      </aside>
+
+      {/* Main Content */}
+      <div className="flex-1 ml-[350px] flex flex-col min-h-screen">
+        {/* Navbar */}
+        <nav className="w-full bg-white shadow px-6 py-4 flex justify-end items-center">
+          <div className="relative group">
+            <button className="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">
+              Admin TU 1
+            </button>
+            <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg hidden group-hover:block z-10">
+              <ul>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Profil</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Keluar</li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        {/* Form */}
+        <main className="flex-1 p-10">
+          <div className="flex justify-between items-center max-w-3xl ml-16">
+            <h1 className="text-2xl font-semibold">Tambah Surat Masuk</h1>
+            <button className="text-gray-600 hover:text-black text-xl">↩</button>
+          </div>
+
+          <form className="mt-8 space-y-6 max-w-3xl w-full px-4 ml-16">
+            <div>
+              <label className="block font-medium">No. Surat</label>
+              <input type="text" className="w-full border rounded px-4 py-2" />
+            </div>
+
+            <div>
+              <label className="block font-medium">Perihal</label>
+              <textarea className="w-full border rounded px-4 py-2" />
+            </div>
+
+            <div>
+              <label className="block font-medium">Alamat Pengirim</label>
+              <input type="text" className="w-full border rounded px-4 py-2" />
+            </div>
+
+            <div>
+              <label className="block font-medium">Tanggal Terima</label>
+              <input
+                type="text"
+                className="w-full border rounded px-4 py-2"
+                placeholder="DD/MM/YYYY"
+              />
+            </div>
+
+            <div>
+              <label className="block font-medium">Sifat Surat</label>
+              <select className="w-full border rounded px-4 py-2">
+                <option value="sangat-segera">Sangat Segera</option>
+                <option value="segera">Segera</option>
+                <option value="biasa">Biasa</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block font-medium">Disposisi</label>
+              <textarea className="w-full border rounded px-4 py-2" />
+            </div>
+
+            <div>
+              <label className="block font-medium">Isi Disposisi</label>
+              <textarea className="w-full border rounded px-4 py-2 h-28" />
+            </div>
+
+            <div>
+              <label className="block font-medium">Tambah File Surat</label>
+              <input type="file" className="w-full border rounded px-4 py-2 bg-white" />
+            </div>
+
+            <div className="pt-4 text-center">
+              <button
+                type="submit"
+                className="bg-gray-300 hover:bg-gray-400 text-black font-semibold py-2 px-10 rounded"
+              >
+                Tambah
+              </button>
+            </div>
+          </form>
+        </main>
       </div>
-    </>
+    </div>
   );
 }
