@@ -6,6 +6,7 @@ import Suratkeluar from "./components/Surat-keluar";
 import RekapSuratMasuk from "./components/Rekap-surat-masuk";
 import RekapSuratKeluar from "./components/Rekap-surat-keluar";
 import Navbar from "./components/ui/navbar";
+import KepsekSuratMasuk from "./kepsek/Kepsek-Surat-Masuk";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/surat-keluar" element={<Suratkeluar />} />
           <Route path="/Rekap-surat-masuk" element={<RekapSuratMasuk />} />
           <Route path="/Rekap-surat-keluar" element={<RekapSuratKeluar />} />
+          <Route path="/Kepsek-Surat-Masuk" element={<KepsekSuratMasuk />} />
           <Route path="/navbar" element={<Navbar/>} />
         </Routes>
       </BrowserRouter>
