@@ -2,6 +2,34 @@ import React, { useState } from "react";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => { // Menentukan tipe untuk parameter
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        window.location.href = data.redirect;
+      } else {
+        setError(data.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Login failed. Please try again.');
+    }
+  };
 
   return (
     <div className="w-full h-screen bg-white flex items-center justify-center">
@@ -24,13 +52,17 @@ export default function LoginPage() {
               Solusi Cerdas Pengelolaan Arsip Digital Madrasah Aliyah Negeri 1
             </p>
 
-            <form className="space-y-6">
+            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
+            <form className="space-y-6" onSubmit={handleLogin}>
               <div>
                 <label className="block text-gray-700 mb-2">User name</label>
                 <input
                   type="text"
                   id="username"
                   name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:border-green-500"
                   placeholder="Enter your User name"
                 />
@@ -43,6 +75,8 @@ export default function LoginPage() {
                     type={showPassword ? "text" : "password"}
                     id="password"
                     name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:border-green-500"
                     placeholder="Enter your Password"
                   />
