@@ -83,7 +83,14 @@ export default function KepsekRekapSuratMasuk() {
               </tbody>
             </table>
           </div>
-
+          <div className="pt-4 text-end">
+              <button
+                type="submit"
+                className="bg-gray-300 hover:bg-gray-400 text-black font-semibold py-2 px-10 rounded"
+              >
+                Tambah
+              </button>
+            </div>
         </main>
       </div>
     </div>
